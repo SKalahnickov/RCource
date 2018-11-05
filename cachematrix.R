@@ -2,6 +2,8 @@
 ## functions do
 
 ## A wrapping over the matrix
+## It's like an objects with its getters and setters and all it does is 
+## allowing to get and set values for the initial matrix and an inverse one
 
 makeCacheMatrix <- function(x = matrix()) {
   i <- NULL
@@ -18,6 +20,9 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 ## Cache solver
+## The function is intended for more optimal calculating of an inverse matrix.
+## It checks whether the inverse value was calculated (and thus saved to cache) and returns it.
+## If not, it calculates it, saves to the cache and returns it.
 
 cacheSolve <- function(x, ...) {
     m <- x$getInverse()
@@ -31,7 +36,7 @@ cacheSolve <- function(x, ...) {
 }
 
 
-#check
+#Here is some checking with a solvable matrix
 
 m <- matrix(c(3, 3.2, 3.5, 3.6), 2, 2)
 obj <- makeCacheMatrix(m)
