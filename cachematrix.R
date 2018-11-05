@@ -17,3 +17,15 @@ makeCacheMatrix <- function(x = matrix()) {
        getInverse = getInverse)
 }
 
+## Cache solver
+
+cacheSolve <- function(x, ...) {
+    m <- x$getInverse()
+    if(!is.null(m)) {
+      return(m)
+    }
+    data <- x$get()
+    i <- solve(data, ...)
+    x$setInverse(i)
+    i
+}
