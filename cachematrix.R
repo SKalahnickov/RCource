@@ -29,3 +29,13 @@ cacheSolve <- function(x, ...) {
     x$setInverse(i)
     i
 }
+
+
+#check
+
+m <- matrix(c(3, 3.2, 3.5, 3.6), 2, 2)
+obj <- makeCacheMatrix(m)
+print(obj$get()) #initial matrix
+print(obj$getInverse()) #initial cache value
+print(cacheSolve(obj)) #calling cach solve
+print(obj$getInverse()) #new cache value
